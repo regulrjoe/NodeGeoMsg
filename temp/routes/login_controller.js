@@ -12,9 +12,13 @@ router.post('/', function(req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
 
-  if (Login.loginUser(email, password)){
+  var nick_result = Login.loginUser(email, password);
+
+  if (nick_result != null){
     /* render first responder */
     res.send("hola");
+  }else {
+    res.send("nel");
   }
   
 });
