@@ -24,7 +24,7 @@ function login(p_email, p_password) {
         if (user) {
             console.log("login result: " + user);
             user_nick = user.nick;
-            console.log("login nick: " + result_nick);
+            console.log("login nick: " + user_nick);
             db.close();
             return user_nick;
         }

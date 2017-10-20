@@ -1,5 +1,3 @@
-//login_view.js
-
 function login(email, password) {
 	$.ajax({
 		type: 'POST',
@@ -12,18 +10,18 @@ function login(email, password) {
 			else { console.log("Error logging in..."); }
 		},
 		error: function(err) {
-			console.log("Error connecting to server when trying to register user", err);
+			console.log("Error connecting to server when trying to register user: " + err);
 		}
 	});
 }
-
-
 
 function loginClick() {
 	var email = $("#email").val();
 	var password = $("#password").val();
 
-	if (email == "" || password == "") {
-		alert("Complete todos los campos");
-	} else { login(email, password); }	
+	if (!(email && password)) {
+		alert("Porfavor complete todos los campos.");
+		return;
+	}
+	login(email, password);	
 }
