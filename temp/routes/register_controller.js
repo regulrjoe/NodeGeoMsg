@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('register');
 });
 
-router.post('/', function(req, res, next) {
+router.get('/insert', function(req, res, next) {
   var nick = req.query.nick;
   var email = req.query.email;
   var password = req.query.password;
