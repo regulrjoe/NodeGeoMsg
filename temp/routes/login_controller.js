@@ -13,6 +13,7 @@ router.post('/', function(req, res, next) {
   var password = req.body.password;
 
   var nick_result = Login.loginUser(email, password);
+  console.log("controller: " + nick_result);
 
   if (nick_result != null){
     /* render first responder */

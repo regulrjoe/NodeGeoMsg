@@ -24,8 +24,10 @@ function login(p_email, p_password) {
                 throw err;
             console.log("login result: " + result);
             user_nick = result.nick;
-            console.log("login nick: " + result.nick);
+            console.log("login nick: " + user_nick);
             db.close();
+            console.log("login final: " + user_nick);
+            return user_nick;
         });
 
         // var user = collection.find({ "email": email, "password": password });
@@ -39,5 +41,6 @@ function login(p_email, p_password) {
     });
 
     /* Returns null if no valid user was found */
+    console.log("login final: " + user_nick);
     return user_nick;
 }
