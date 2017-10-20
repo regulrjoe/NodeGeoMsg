@@ -2,54 +2,55 @@ const mongoClient = require("mongodb").MongoClient;
 const url  = 'mongodb://localhost:27017/geomsg';
 
 
+/* Export functions for modular use */
 module.exports = {
     registerUser: function(nick, email, password) {
-        registerUser(nick, email, password);
+        insertUser(nick, email, password);
     },
     emailExists: function(email) {
         emailExists(email);
     }
 }
 
-function registerUser(nick, email, password) {
+/* Insert User into mongodb */
+function insertUser(nick, email, password) {
     var user = "";
-    mongoClient.connect(url, function(err, db) {
 
+    mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
-
         var collection = db.collection('User');
-
         user = {
-            user_nick: nick,
-            user_email: email,
-            user_password: password
+            nick: nick,
+            email: email,
+            password: password
         };
 
+        /* Make insertion */
         collection.insert(user, function(err, result) {
             if (err)
                 throw err;
-
             db.close();
         });
     });
 
-    return user.user_nick;
+    return user.nick;
 }
 
 
+/* Check if email is already registered */
 function emailExists(email) {
-    var user_email = null;
+    var result = null;
+
     mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
-
         var collection = db.collection('User');
-
-        user_email = collection.find({"email": email});
-
+        /* Find email */
+        result = collection.find({"email": email});
         db.close();
     });
 
-    return (user_email != null) ? true : false;
+    /* Return true if email exists, false otherwise  */
+    return (result != null) ? true : false;
 }
