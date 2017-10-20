@@ -19,4 +19,4 @@ branch por feature = desarrollo
 
 ## Workflow
 
-[](./workflow.jpg)!
+![](./workflow.jpg)
