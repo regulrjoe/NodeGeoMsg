@@ -21,9 +21,9 @@ function insertUser(nick, email, password) {
             throw err;
         var collection = db.collection('User');
         user = {
-            user_nick: nick,
-            user_email: email,
-            user_password: password
+            nick: nick,
+            email: email,
+            password: password
         };
 
         /* Make insertion */
@@ -34,7 +34,7 @@ function insertUser(nick, email, password) {
         });
     });
 
-    return user.user_nick;
+    return user.nick;
 }
 
 
