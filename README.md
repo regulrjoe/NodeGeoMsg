@@ -16,6 +16,15 @@ $ npm install
 $ npm start
 ```
 
+## Database
+
+### User Collection
+```
+$ mongo
+> use geomsg
+> db.createCollection("User")
+```
+
 # Collaboration
 
 ## Branches
