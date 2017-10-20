@@ -33,3 +33,8 @@ branch por feature: desarrollo
 ## Workflow
 
 ![](./workflow.jpg)
+
+## Mockups
+
+![](./mockup1.jpg)
+![](./mockup2.jpg)
