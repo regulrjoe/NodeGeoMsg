@@ -4,14 +4,14 @@ const url  = 'mongodb://localhost:27017/geomsg';
 
 module.exports = {
     registerUser: function(nick, email, password) {
-        registerUser(nick, email, password);
+        insertUser(nick, email, password);
     },
     emailExists: function(email) {
         emailExists(email);
     }
 }
 
-function registerUser(nick, email, password) {
+function insertUser(nick, email, password) {
     var user = "";
     mongoClient.connect(url, function(err, db) {
 
@@ -39,17 +39,17 @@ function registerUser(nick, email, password) {
 
 
 function emailExists(email) {
-    var user_email = null;
+    var result = null;
     mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
 
         var collection = db.collection('User');
 
-        user_email = collection.find({"email": email});
+        result = collection.find({"email": email});
 
         db.close();
     });
 
-    return (user_email != null) ? true : false;
+    return (result != null) ? true : false;
 }
