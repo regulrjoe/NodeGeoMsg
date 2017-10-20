@@ -24,7 +24,12 @@ $ mongo
 > use geomsg
 > db.createCollection("User")
 ```
-
+### Message collection
+```
+$ mongo
+> use geomsg
+> db.createCollection("Message")
+```
 # Collaboration
 
 ## Branches
