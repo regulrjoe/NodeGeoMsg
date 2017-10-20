@@ -4,7 +4,14 @@ GeoMsg es una plataforma móvil, en la cual se le permite al usuario A dejar un 
 
 El objetivo de este proyecto, es poder comunicarte con tu entorno, de una manera digital, reduciendo cualquier desperdicio o daño a una propiedad.
 
-# Colaboration
+# Installation
+
+```
+$ mongo
+> use geomsg
+```
+
+# Collaboration
 
 ## Branches
 
