@@ -27,8 +27,11 @@ function login(email, password) {
         // });
 
         var user = collection.find({ "email": email, "password": password });
-        if (user != null)
+        console.log(user);
+        if (user != null) {
             user_nick = user.nick;
+            console.log(user_nick);
+        }
         db.close();
 
     });
