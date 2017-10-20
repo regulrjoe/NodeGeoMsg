@@ -9,7 +9,7 @@ module.exports = {
 }
 
 /* Check for valid email/password */
-function login(p_email, p_password) {
+function login(_email, _password) {
     var user_nick = null;
 
     mongoClient.connect(url, function(err, db) {
@@ -19,7 +19,7 @@ function login(p_email, p_password) {
         var collection = db.collection('User');
 
         /* Find user with email/password combination */
-        var user = collection.findOne({email: p_email, password:p_password})
+        var user = collection.findOne({email: _email, password: _password})
           .then((result) => {
               if (user) {
                   console.log("login result: " + user);
@@ -30,8 +30,4 @@ function login(p_email, p_password) {
               }
           });
     });
-
-    /* Returns null if no valid user was found */
-    console.log("login final: " + user_nick);
-    return user_nick;
 }
