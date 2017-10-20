@@ -19,20 +19,22 @@ function login(email, password) {
         var collection = db.collection('User');
 
         /* Find user with email/password combination */
-        // collection.findOne({}, function(err, result) {
-        //     if (err)
-        //         throw err;
-        //     user_nick = result.nick;
-        //     db.close();
-        // });
+        collection.findOne({}, function(err, result) {
+            if (err)
+                throw err;
+            console.log("login result: " + result);
+            user_nick = result.nick;
+            console.log("login nick: " + user_nick);
+            db.close();
+        });
 
-        var user = collection.find({ "email": email, "password": password });
-        console.log(user);
-        if (user != null) {
-            user_nick = user.nick;
-            console.log(user_nick);
-        }
-        db.close();
+        // var user = collection.find({ "email": email, "password": password });
+        // console.log(user);
+        // if (user != null) {
+        //     user_nick = user.nick;
+        //     console.log(user_nick);
+        // }
+        // db.close();
 
     });
 
