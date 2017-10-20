@@ -8,14 +8,15 @@ El objetivo de este proyecto, es poder comunicarte con tu entorno, de una manera
 
 ## Branches
 
-master = código funcionando
-branch por feature = desarrollo
+master: código funcionando
+branch por feature: desarrollo
 
 ## Collaboration
 
 * Commits on english
 * Variables on snake_case
 * Classes on PascalCase
+* Functions on camelCase
 
 ## Workflow
 
