@@ -8,10 +8,10 @@ router.get('/', function(req, res, next) {
   res.render('register');
 });
 
-router.get('/insert', function(req, res, next) {
-  var nick = req.query.nick;
-  var email = req.query.email;
-  var password = req.query.password;
+router.post('/', function(req, res, next) {
+  var nick = req.body.nick;
+  var email = req.body.email;
+  var password = req.body.password;
   
   /* check if email exists */
   if (!RegisterModel.emailExists(email)) {
