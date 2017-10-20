@@ -21,9 +21,9 @@ function insertMessage(_text, _location) {
 
         /* Create message object */
         message = {
-            location = {
-                lat: _location.lat,
-                lng: _location.lng
+          location:  {
+                lat: msg_location.lat,
+                lng: msg_location.lng
             },
             text: _text,
         }
