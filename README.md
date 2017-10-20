@@ -9,6 +9,9 @@ El objetivo de este proyecto, es poder comunicarte con tu entorno, de una manera
 ```
 $ mongo
 > use geomsg
+
+$ npm install
+$ npm start
 ```
 
 # Collaboration
