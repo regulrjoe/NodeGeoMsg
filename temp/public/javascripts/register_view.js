@@ -21,8 +21,8 @@ function register(nick, email, password) {
 }
 
 $('#create').click(function() {
-	var nick = $("#user").value();
-	var email = $("#email").value();
-	var password = $("#password").value();
+	var nick = $("#user").val();
+	var email = $("#email").val();
+	var password = $("#password").val();
 	register(nick, email, password);
 });
