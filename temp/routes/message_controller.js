@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var MessageModel = require('/models/message_model');
+var MessageModel = require('../models/message_model');
 
 router.get('/', function(req, res, next) {
   /* render first responder */
@@ -16,5 +16,6 @@ router.post('/', function(req, res, next) {
 
   var insert_result = MessageModel.postMessage(message, message_location);
 
-  res.send(insert_result);
+  console.log(insert_result);
+  res.send(JSON.parse(insert_result));
 });

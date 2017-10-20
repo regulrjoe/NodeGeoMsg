@@ -20,7 +20,7 @@ function insertMessage(msg_text, msg_location) {
         var collection = db.collection('Message');
 
         message = {
-            location = {
+          location:  {
                 lat: msg_location.lat,
                 lng: msg_location.lng
             },
