@@ -1,15 +1,14 @@
-var mongoCliente = require("mongodb").MongoClient;
-var url  = 'mongodb://localhost:27017/geomsg';
+const mongoCliente = require("mongodb").MongoClient;
+const url  = 'mongodb://localhost:27017/geomsg';
 
 
 module.exports = {
     registerUser: function(nick, email, password) {
         registerUser(nick, email, password);
-    }
-
+    },
     emailExists: function(email) {
         emailExists(email);
-    } 
+    }
 }
 
 function registerUser(nick, email, password) {
