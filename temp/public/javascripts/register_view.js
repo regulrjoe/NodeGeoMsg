@@ -1,6 +1,5 @@
 //register_view.js
 
-
 function register(nick, email, password) {
 	$.ajax({
 		type: 'POST',
@@ -20,3 +19,10 @@ function register(nick, email, password) {
 		}
 	});
 }
+
+$('#create').click(function() {
+	var nick = $("#user").value();
+	var email = $("#email").value();
+	var password = $("#password").value();
+	register(nick, email, password);
+});
