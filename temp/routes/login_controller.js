@@ -17,9 +17,9 @@ router.post('/', function(req, res, next) {
 
   if (nick_result != null){
     /* render first responder */
-    res.send("hola");
+    res.send({"status": true});
   }else {
-    res.send("nel");
+    res.send({"status": true});
   }
   
 });
