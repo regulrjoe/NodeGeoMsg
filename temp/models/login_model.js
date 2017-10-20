@@ -3,7 +3,7 @@ const url  = 'mongodb://localhost:27017/geomsg';
 
 /* Export functions for modular use */
 module.exports = {
-    loginUser: function(nick, email, password) {
+    loginUser: function(email, password) {
         login(email, password);
     }
 }
