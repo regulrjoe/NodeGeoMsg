@@ -12,14 +12,14 @@ router.post('/', function(req, res, next) {
   var email = req.body.email;
   var password = req.body.password;
 
-  var nick_result = Login.loginUser(email, password);
-  console.log("controller: " + nick_result);
+  var user_result = Login.loginUser(email, password);
+  console.log("controller: " + user_result);
 
-  if (nick_result != null){
+  if (user_result != null){
     /* render first responder */
-    res.send({"status": true});
+    res.send({"user_id": user_result.user_id, "nick": user_result.nick});
   }else {
-    res.send({"status": true});
+    res.send({"error": true});
   }
   
 });
