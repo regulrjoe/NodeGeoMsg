@@ -6,8 +6,12 @@ function login(email, password) {
 		data: { email: email, password: password },
 		success: function(data) {
 
-			if (data.result != null){ alert("Wohooo! you are logged in!"); } //TODO: redirect to main page...}
-			else { console.log("Error logging in..."); }
+			if (data.result){ 
+        console.log("Success logging in..."); 
+        alert("Wohooo! you are logged in!"); 
+      }else { 
+        console.log("Error logging in..."); 
+      }
 		},
 		error: function(err) {
 			console.log("Error connecting to server when trying to register user: " + err);

@@ -19,17 +19,19 @@ function login(p_email, p_password) {
         var collection = db.collection('User');
 
         /* Find user with email/password combination */
-        var user = collection.findOne({email: p_email, password:p_password});
-
-        if (user) {
-            console.log("login result: " + user);
-            user_nick = user.nick;
-            console.log("login nick: " + user_nick);
-            db.close();
-            return user_nick;
-        }
+        var user = collection.findOne({email: p_email, password:p_password})
+          .then((result) => {
+              if (user) {
+                  console.log("login result: " + user);
+                  user_nick = user.nick;
+                  console.log("login nick: " + user_nick);
+                  db.close();
+                  return user_nick;
+              }
+          });
     });
 
     /* Returns null if no valid user was found */
+    console.log("login final: " + user_nick);
     return user_nick;
 }
