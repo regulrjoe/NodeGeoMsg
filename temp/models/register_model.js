@@ -13,8 +13,8 @@ module.exports = {
 
 function registerUser(_nick, _email, _password) {
     var user = "";
-    mongoClient.connect(url, function(err, db) {
 
+    mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
 
@@ -30,12 +30,13 @@ function registerUser(_nick, _email, _password) {
             db.close();
             return (result.n > 0) ? nick : false;
         });
-    }
+    });
 }
 
 
 function emailExists(email) {
     var user_email = null;
+
     mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
