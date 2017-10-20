@@ -19,7 +19,7 @@ function login(email, password) {
         var collection = db.collection('User');
 
         /* Find user with email/password combination */
-        collection.findOne({}, function(err, result) {
+        collection.findOne({"email":email, "password":password}, function(err, result) {
             if (err)
                 throw err;
             console.log("login result: " + result);
