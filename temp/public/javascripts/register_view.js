@@ -1,13 +1,14 @@
 //register_view.js
 
 function register(nick, email, password) {
+	console.log("in register");
 	$.ajax({
 		type: 'POST',
 		dataType: 'json',
 		url: '/register',
 		data: { nick: nick, email: email, password: password },
 		success: function(data) {
-			
+
 			if (data.result)
 				alert("Wohooo! you are now registered!");
 				//TODO: redirect to main page...
@@ -20,9 +21,10 @@ function register(nick, email, password) {
 	});
 }
 
-$('#create').click(function() {
-	var nick = $("#user").value();
-	var email = $("#email").value();
-	var password = $("#password").value();
+function createClick() {
+	console.log("in click function");
+	var nick = $("#user").val();
+	var email = $("#email").val();
+	var password = $("#password").val();
 	register(nick, email, password);
-});
+}
