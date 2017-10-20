@@ -9,7 +9,7 @@ module.exports = {
 }
 
 
-function insertMessage(msg_text, msg_location) {
+function insertMessage(_text, _location) {
     var message = "";
     var status = null;
 
@@ -19,22 +19,24 @@ function insertMessage(msg_text, msg_location) {
 
         var collection = db.collection('Message');
 
+        /* Create message object */
         message = {
             location = {
-                lat: msg_location.lat,
-                lng: msg_location.lng
+                lat: _location.lat,
+                lng: _location.lng
             },
-            text: msg_text,
+            text: _text,
         }
 
-        collection.insert(message, function(err, result) {
-            if (err)
-                throw err;
+        collection.insert(message).then((result) => {
             status = result;
-            console.log("insert result: " + result);
-            db.close();
+            if (status) {
+                console.log("insert message result" + status);
+                db.close();
+                return status;
+            }
         });
     });
 
-    return (status != null) ? true : false;
+    return false;
 }
