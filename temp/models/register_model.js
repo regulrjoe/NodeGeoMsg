@@ -11,7 +11,7 @@ module.exports = {
     }
 }
 
-function registerUser(nick, email, password) {
+function registerUser(_nick, _email, _password) {
     var user = "";
     mongoClient.connect(url, function(err, db) {
 
@@ -21,14 +21,14 @@ function registerUser(nick, email, password) {
         var collection = db.collection('User');
 
         user = {
-            user_nick: nick,
-            user_email: email,
-            user_password: password
+            nick: _nick,
+            email: _email,
+            password: _password
         };
 
         collection.insert(user).then((result) => {
             db.close();
-            return (result.n > 0) ? user_nick : false;
+            return (result.n > 0) ? nick : false;
         });
     }
 }
