@@ -1,4 +1,4 @@
-const mongoCliente = require("mongodb").MongoClient;
+const mongoClient = require("mongodb").MongoClient;
 const url  = 'mongodb://localhost:27017/geomsg';
 
 
@@ -12,6 +12,7 @@ module.exports = {
 }
 
 function registerUser(nick, email, password) {
+    var user = "";
     mongoClient.connect(url, function(err, db) {
 
         if (err)
@@ -19,7 +20,7 @@ function registerUser(nick, email, password) {
 
         var collection = db.collection('User');
 
-        var user = {
+        user = {
             user_nick: nick,
             user_email: email,
             user_password: password
@@ -38,13 +39,14 @@ function registerUser(nick, email, password) {
 
 
 function emailExists(email) {
+    var user_email = null;
     mongoClient.connect(url, function(err, db) {
         if (err)
             throw err;
 
         var collection = db.collection('User');
 
-        var user_email = collection.find({"email": email});
+        user_email = collection.find({"email": email});
 
         db.close();
     });

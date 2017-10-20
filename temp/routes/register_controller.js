@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-  var nick = req.query.nick;
-  var email = req.query.email;
-  var password = req.query.password;
+  var nick = req.body.nick;
+  var email = req.body.email;
+  var password = req.body.password;
   
   /* check if email exists */
   if (!RegisterModel.emailExists(email)) {
     /* register user */
-    nick_result = RegisterModel.register_user(nick, email, password); 
+    nick_result = RegisterModel.registerUser(nick, email, password); 
 
     /* render result page */
     res.send('Registrado');
