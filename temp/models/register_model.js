@@ -26,15 +26,11 @@ function registerUser(nick, email, password) {
             user_password: password
         };
 
-        collection.insert(user, function(err, result) {
-            if (err)
-                throw err;
-
+        collection.insert(user).then((result) => {
             db.close();
+            return (result.n > 0) ? user_nick : false;
         });
-    });
-
-    return user.user_nick;
+    }
 }
 
 
@@ -46,10 +42,9 @@ function emailExists(email) {
 
         var collection = db.collection('User');
 
-        user_email = collection.find({"email": email});
-
-        db.close();
+        user_email = collection.find({"email": email}).then((result) => {
+            db.close();
+            return (user_email != null) ? true : false;
+        });
     });
-
-    return (user_email != null) ? true : false;
 }
